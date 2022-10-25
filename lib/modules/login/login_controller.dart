@@ -27,6 +27,7 @@ class LoginController extends GetxController with LoaderMixin, MessagesMaxin {
       loading(false);
       message(MessagesModel.info(title: 'Sucesso!', message: 'Login Relalizado com sucesso'));
     } catch (e, s) {
+      loading(false);
       log('Erro ao realizar o Login', error: e, stackTrace: s);
       message(MessagesModel.error(title: 'Erro Login', message: 'Erro ao realizar o Login'));
     }
