@@ -1,3 +1,4 @@
+import 'package:appfilmesgetx/application/bindings/application_bindings.dart';
 import 'package:appfilmesgetx/modules/login/login_module.dart';
 import 'package:appfilmesgetx/modules/splash/splash_module.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'App Filmes Getx',
+      initialBinding: ApplicationBindings(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
