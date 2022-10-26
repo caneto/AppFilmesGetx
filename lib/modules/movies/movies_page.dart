@@ -1,4 +1,7 @@
+import 'package:appfilmesgetx/modules/movies/widgets/movies_filters.dart';
+import 'package:appfilmesgetx/modules/movies/widgets/movies_header.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
     
 class MoviesPage extends StatelessWidget {
 
@@ -6,12 +9,14 @@ class MoviesPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-     appBar: AppBar(
-        automaticallyImplyLeading: false, 
-        title: Text('Movie Page'),
-     ),
-     body: Text('Estou na MoviesPage'),
+    return SizedBox(
+      width: Get.width,
+      child: ListView(
+        children: const [
+          MoviesHeader(),
+          MoviesFilters(),
+        ],
+      ),
     );
   }
 }
