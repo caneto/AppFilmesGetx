@@ -1,4 +1,5 @@
 import 'package:appfilmesgetx/modules/movies/widgets/movies_filters.dart';
+import 'package:appfilmesgetx/modules/movies/widgets/movies_group.dart';
 import 'package:appfilmesgetx/modules/movies/widgets/movies_header.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,6 +16,8 @@ class MoviesPage extends StatelessWidget {
         children: const [
           MoviesHeader(),
           MoviesFilters(),
+          MoviesGroup(title: 'Mais Populares'),
+          MoviesGroup(title: 'Top Filmes'),
         ],
       ),
     );
