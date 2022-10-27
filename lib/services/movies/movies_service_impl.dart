@@ -1,19 +1,18 @@
 import 'package:appfilmesgetx/models/movie_model.dart';
+import 'package:appfilmesgetx/repositories/movies/movies_repository.dart';
 
 import './movies_service.dart';
 
 class MoviesServiceImpl implements MoviesService {
-  
-  @override
-  Future<List<MovieModel>> getPopularMovies() {
-    // TODO: implement getPopularMovies
-    throw UnimplementedError();
-  }
+
+  final MoviesRepository _moviesRepository;
+
+  MoviesServiceImpl({required MoviesRepository moviesRespository}) : _moviesRepository = moviesRespository;
 
   @override
-  Future<List<MovieModel>> getTopRated() {
-    // TODO: implement getTopRated
-    throw UnimplementedError();
-  }
+  Future<List<MovieModel>> getPopularMovies() => _moviesRepository.getPopularMovies();
+
+  @override
+  Future<List<MovieModel>> getTopRated() => _moviesRepository.getTopRated();
 
 }
