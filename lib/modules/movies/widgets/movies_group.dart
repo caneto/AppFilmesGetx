@@ -7,7 +7,9 @@ class MoviesGroup extends StatelessWidget {
   final String title;
   final List<MovieModel> movies;
 
-  const MoviesGroup({Key? key, required this.title, required this.movies})
+  const MoviesGroup({Key? key, 
+    required this.title, 
+    required this.movies})
       : super(key: key);
 
   @override

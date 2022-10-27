@@ -52,18 +52,24 @@ class MoviesController extends GetxController with MessagesMaxin {
     }
   }
 
-  void filterByName(String title) {
-    if(title.isNotEmpty) {
-      var newPopularMovies = _popularMoviesOriginal.where((movie){
-        return movie.title.toLowerCase().contains(title.toLowerCase());
-      });
-
-      var newTopRetadMovies = _topRatedMoviesOriginal.where((movie){
-        return movie.title.toLowerCase().contains(title.toLowerCase());
-      });
-
+void filterByName(String title) {
+    if (title.isNotEmpty) {
+      var newPopularMovies = _popularMoviesOriginal.where(
+        (movie) {
+          return movie.title.toLowerCase().contains(
+                title.toLowerCase(),
+              );
+        },
+      );
+      var newTopRatedMovies = _topRatedMoviesOriginal.where(
+        (movie) {
+          return movie.title.toLowerCase().contains(
+                title.toLowerCase(),
+              );
+        },
+      );
       popularMovies.assignAll(newPopularMovies);
-      topRatedMovies.assignAll(newTopRetadMovies);
+      topRatedMovies.assignAll(newTopRatedMovies);
     } else {
       popularMovies.assignAll(_popularMoviesOriginal);
       topRatedMovies.assignAll(_topRatedMoviesOriginal);
