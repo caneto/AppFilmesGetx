@@ -24,7 +24,6 @@ class HomeController extends GetxController {
     } else {
       Get.offNamed(_pages[page], id: NAVIGATOR_KEY); 
     }
-
   }
 
 }

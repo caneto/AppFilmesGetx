@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:appfilmesgetx/application/ui/messages/messages_maxin.dart';
 import 'package:appfilmesgetx/models/genre_model.dart';
 import 'package:appfilmesgetx/models/movie_model.dart';
@@ -13,8 +15,8 @@ class MoviesController extends GetxController with MessagesMaxin {
   final popularMovies = <MovieModel>[].obs;
   final topRatedMovies = <MovieModel>[].obs;
 
-  final _popularMovies = <MovieModel>[];
-  final _topRatedMovies = <MovieModel>[];
+  var _popularMoviesOriginal = <MovieModel>[];
+  var _topRatedMoviesOriginal = <MovieModel>[];
 
   MoviesController({
     required GenresServices genresServices,
@@ -32,11 +34,40 @@ class MoviesController extends GetxController with MessagesMaxin {
   Future<void> onReady() async {
     super.onReady();
     try {
-      final genres = await _genresServices.getGenres();
-      this.genres.assignAll(genres);
-    } on Exception catch (e) {
+      final genresData = await _genresServices.getGenres();
+      genres.assignAll(genresData);
+      
+      final popularMoviesData = await _moviesService.getPopularMovies();
+      final topRatedMoviesData = await _moviesService.getTopRated();
+
+      popularMovies.assignAll(popularMoviesData);
+      _popularMoviesOriginal = popularMovies;
+      topRatedMovies.assignAll(topRatedMoviesData);
+      _topRatedMoviesOriginal = topRatedMovies;
+
+    } on Exception catch (e, s) {
+      log('Error ao carregar dados da pagina', error: e, stackTrace: s);
       _message(MessagesModel.error(
-          title: 'Erro', message: 'Error ao buscar Generos'));
+          title: 'Erro', message: 'Error ao carregar dados da pagina'));
     }
   }
+
+  void filterByName(String title) {
+    if(title.isNotEmpty) {
+      var newPopularMovies = _popularMoviesOriginal.where((movie){
+        return movie.title.toLowerCase().contains(title.toLowerCase());
+      });
+
+      var newTopRetadMovies = _topRatedMoviesOriginal.where((movie){
+        return movie.title.toLowerCase().contains(title.toLowerCase());
+      });
+
+      popularMovies.assignAll(newPopularMovies);
+      topRatedMovies.assignAll(newTopRetadMovies);
+    } else {
+      popularMovies.assignAll(_popularMoviesOriginal);
+      topRatedMovies.assignAll(_topRatedMoviesOriginal);
+    }
+  }
+
 }

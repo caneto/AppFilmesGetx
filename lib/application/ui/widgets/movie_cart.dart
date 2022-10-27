@@ -1,8 +1,13 @@
 import 'package:appfilmesgetx/application/ui/filmes_app_icons_icons.dart';
+import 'package:appfilmesgetx/models/movie_model.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class MovieCart extends StatelessWidget {
-  const MovieCart({Key? key}) : super(key: key);
+  final dataFormat = DateFormat('y');
+  final MovieModel movie;
+  
+  MovieCart({Key? key, required this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class MovieCart extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   clipBehavior: Clip.antiAlias,
                   child: Image.network(
-                    'https://upload.wikimedia.org/wikipedia/pt/thumb/6/63/Joker_%282019%29.jpg/250px-Joker_%282019%29.jpg',
+                    movie.posterPath,
                     width: 148,
                     height: 184,
                     fit: BoxFit.cover,
@@ -32,18 +37,18 @@ class MovieCart extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
-                'Coringa',
-                style: TextStyle(
+              Text(
+                movie.title,
+                style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
                 ),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
-              const Text(
-                '2018',
-                style: TextStyle(
+              Text(
+                dataFormat.format(DateTime.parse(movie.releaseDate)),
+                style: const TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w300,
                     color: Colors.grey),

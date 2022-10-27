@@ -20,7 +20,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
         'page':'1'
       },
       decoder: (data) {
-        final results = data['result'];
+        final results = data['results'];
         if(results != null) {
           return results.map<MovieModel>((v) => MovieModel.fromMap(v)).toList();
         }
@@ -47,7 +47,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
         'page':'1'
       },
       decoder: (data) {
-        final results = data['result'];
+        final results = data['results'];
         if(results != null) {
           return results.map<MovieModel>((v) => MovieModel.fromMap(v)).toList();
         }
