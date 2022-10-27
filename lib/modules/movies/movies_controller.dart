@@ -10,13 +10,17 @@ import 'package:get/get.dart';
 class MoviesController extends GetxController with MessagesMaxin {
   final GenresServices _genresServices;
   final MoviesService _moviesService;
+  
   final _message = Rxn<MessagesModel>();
   final genres = <GenreModel>[].obs;
+  
   final popularMovies = <MovieModel>[].obs;
   final topRatedMovies = <MovieModel>[].obs;
 
   var _popularMoviesOriginal = <MovieModel>[];
   var _topRatedMoviesOriginal = <MovieModel>[];
+
+  final genreSelected = Rxn<GenreModel>();
 
   MoviesController({
     required GenresServices genresServices,
@@ -41,9 +45,9 @@ class MoviesController extends GetxController with MessagesMaxin {
       final topRatedMoviesData = await _moviesService.getTopRated();
 
       popularMovies.assignAll(popularMoviesData);
-      _popularMoviesOriginal = popularMovies;
+      _popularMoviesOriginal = popularMoviesData;
       topRatedMovies.assignAll(topRatedMoviesData);
-      _topRatedMoviesOriginal = topRatedMovies;
+      _topRatedMoviesOriginal = topRatedMoviesData;
 
     } on Exception catch (e, s) {
       log('Error ao carregar dados da pagina', error: e, stackTrace: s);
@@ -68,6 +72,40 @@ void filterByName(String title) {
               );
         },
       );
+      popularMovies.assignAll(newPopularMovies);
+      topRatedMovies.assignAll(newTopRatedMovies);
+    } else {
+      popularMovies.assignAll(_popularMoviesOriginal);
+      topRatedMovies.assignAll(_topRatedMoviesOriginal);
+    }
+  }
+
+  void filterMoviesByGenre(GenreModel? genreModel) {
+    var genreFilter = genreModel;
+
+    if(genreFilter?.id == genreSelected.value?.id) {
+      genreFilter = null;
+    }
+
+    genreSelected.value = genreFilter;
+
+    if(genreFilter != null) {
+      var newPopularMovies = _popularMoviesOriginal.where(
+        (movie) {
+          return movie.genres.contains(
+                genreFilter?.id,
+              );
+        },
+      );
+
+      var newTopRatedMovies = _topRatedMoviesOriginal.where(
+        (movie) {
+          return movie.genres.contains(
+                genreFilter?.id,
+              );
+        },
+      );
+
       popularMovies.assignAll(newPopularMovies);
       topRatedMovies.assignAll(newTopRatedMovies);
     } else {
