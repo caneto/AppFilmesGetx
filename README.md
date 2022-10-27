@@ -143,6 +143,6 @@
 
    <div align="center">
 
-   [![Linkedin Badge](https://img.shields.io/badge/-Carlos%20Alberto-%20-Pinto292929?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/canetorj/)](https://www.linkedin.com/in/canetorj/)
+   [![Linkedin Badge](https://img.shields.io/badge/-Carlos%20Alberto-292929?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/canetorj/)](https://www.linkedin.com/in/canetorj/)
 
    </div>
