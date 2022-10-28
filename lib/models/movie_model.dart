@@ -35,7 +35,7 @@ class MovieModel {
       id: (map["id"] ?? 0) as int,
       title: (map["title"] ?? '') as String,
       releaseDate: (map["release_date"] ?? '') as String,
-      posterPath: ('https://image.tmdb.org/t/p/w200${map["poster_path"]}' ?? '') as String,
+      posterPath: 'https://image.tmdb.org/t/p/w200${map["poster_path"] ?? ''}',
       genres: List<int>.from(((map['genre_ids'] ?? const <int>[])),),
       favorite: (map["favorite"] ?? false) as bool,
     );

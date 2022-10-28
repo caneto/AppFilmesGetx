@@ -2,6 +2,7 @@ import 'package:appfilmesgetx/application/bindings/application_bindings.dart';
 import 'package:appfilmesgetx/application/ui/filmes_app_ui_config.dart';
 import 'package:appfilmesgetx/modules/home/home_module.dart';
 import 'package:appfilmesgetx/modules/login/login_module.dart';
+import 'package:appfilmesgetx/modules/movie_detail/movie_detail_module.dart';
 import 'package:appfilmesgetx/modules/splash/splash_module.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         ...SplashModule().routers,
         ...LoginModule().routers,
         ...HomeModule().routers,
+        ...MovieDetailModule().routers,
       ],
     );
   }
