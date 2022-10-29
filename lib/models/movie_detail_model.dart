@@ -12,6 +12,7 @@ class MovieDetailModel {
   final DateTime releaseDate;
   final String overview;
   final List<String> productionCompanies;
+  final String spokenLanguages;
   final String originalLanguage;
   final List<CastModel> cast;
 
@@ -23,6 +24,7 @@ class MovieDetailModel {
     required this.releaseDate,
     required this.overview,
     required this.productionCompanies,
+    required this.spokenLanguages,
     required this.originalLanguage,
     required this.cast,
   });
@@ -65,7 +67,8 @@ class MovieDetailModel {
       originalLanguage: map['original_language'] ?? '',
       cast: List<CastModel>.from(
         map['credits']['cast']?.map((x) => CastModel.fromMap(x)) ?? const [],
-      ),
+      ), 
+      spokenLanguages: '',
     );
   }
 
