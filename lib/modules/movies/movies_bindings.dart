@@ -9,8 +9,13 @@ import 'movies_controller.dart';
 class MoviesBindings implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<GenresRepository>(() => GenresRepositoryImpl(restclient: Get.find()));
-    Get.lazyPut<GenresServices>(() => GenresServicesImpl(genresRepository: Get.find()));
-    Get.lazyPut(() => MoviesController(genresServices: Get.find(), moviesService: Get.find()));
+    Get.lazyPut<GenresRepository>(
+        () => GenresRepositoryImpl(restclient: Get.find()));
+    Get.lazyPut<GenresServices>(
+        () => GenresServicesImpl(genresRepository: Get.find()));
+    Get.lazyPut(() => MoviesController(
+        genresServices: Get.find(),
+        moviesService: Get.find(),
+        authService: Get.find()));
   }
 }

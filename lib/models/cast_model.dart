@@ -14,9 +14,9 @@ class CastModel {
   });
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'name': name,
-      'image': image,
+    return {
+      'original_name': name,
+      'profile_path': image,
       'character': character,
     };
   }

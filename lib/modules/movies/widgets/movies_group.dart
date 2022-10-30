@@ -1,15 +1,14 @@
 import 'package:appfilmesgetx/application/ui/widgets/movie_cart.dart';
 import 'package:appfilmesgetx/models/movie_model.dart';
+import 'package:appfilmesgetx/modules/movies/movies_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MoviesGroup extends StatelessWidget {
+class MoviesGroup extends GetView<MoviesController> {
   final String title;
   final List<MovieModel> movies;
 
-  const MoviesGroup({Key? key, 
-    required this.title, 
-    required this.movies})
+  const MoviesGroup({Key? key, required this.title, required this.movies})
       : super(key: key);
 
   @override
@@ -34,7 +33,11 @@ class MoviesGroup extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: movies.length,
                 itemBuilder: (context, index) {
-                  return MovieCart(movie: movies[index],);
+                  var movie = movies[index];
+                  return MovieCart(
+                    movie: movie,
+                    favoriteCallback: () => controller.favoriteMovie(movie),
+                  );
                 },
               );
             }),

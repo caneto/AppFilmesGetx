@@ -1,6 +1,5 @@
-import 'dart:convert';
-
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
 
 class MovieModel {
   final int id;
@@ -35,7 +34,7 @@ class MovieModel {
       id: (map["id"] ?? 0) as int,
       title: (map["title"] ?? '') as String,
       releaseDate: (map["release_date"] ?? '') as String,
-      posterPath: 'https://image.tmdb.org/t/p/w200${map["poster_path"] ?? ''}',
+      posterPath: map["poster_path"],
       genres: List<int>.from(((map['genre_ids'] ?? const <int>[])),),
       favorite: (map["favorite"] ?? false) as bool,
     );
@@ -48,5 +47,23 @@ class MovieModel {
   @override
   String toString() {
     return 'MovieModel(id: $id, title: $title, releaseDate: $releaseDate, posterPath: $posterPath, genres: $genres, favorite: $favorite)';
+  }
+
+  MovieModel copyWith({
+    int? id,
+    String? title,
+    String? releaseDate,
+    String? posterPath,
+    List<int>? genres,
+    bool? favorite,
+  }) {
+    return MovieModel(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      releaseDate: releaseDate ?? this.releaseDate,
+      posterPath: posterPath ?? this.posterPath,
+      genres: genres ?? this.genres,
+      favorite: favorite ?? this.favorite,
+    );
   }
 }

@@ -7,8 +7,9 @@ import 'package:intl/intl.dart';
 class MovieCart extends StatelessWidget {
   final dataFormat = DateFormat('y');
   final MovieModel movie;
+  final VoidCallback favoriteCallback;
   
-  MovieCart({Key? key, required this.movie}) : super(key: key);
+  MovieCart({Key? key, required this.movie, required this.favoriteCallback}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class MovieCart extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                     clipBehavior: Clip.antiAlias,
                     child: Image.network(
-                      movie.posterPath,
+                      'https://image.tmdb.org/t/p/w200${movie.posterPath}',
                       width: 148,
                       height: 184,
                       fit: BoxFit.cover,
@@ -75,7 +76,7 @@ class MovieCart extends StatelessWidget {
                       FilmesAppIcons.heart,
                       color: Colors.grey,
                     ),
-                    onPressed: () {},
+                    onPressed: favoriteCallback,
                   ),
                 ),
               ),
