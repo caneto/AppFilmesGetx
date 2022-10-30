@@ -117,8 +117,9 @@ class MoviesRepositoryImpl implements MoviesRepository {
 
     final listFavorities = <MovieModel>[];
     for(var movie in favoriteMovies.docs) {
-      
+      listFavorities.add(MovieModel.fromMap(movie.data()));
     }
+    return listFavorities;
   
   }
 }
