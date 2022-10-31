@@ -1,4 +1,4 @@
-import 'package:appfilmesgetx/application/ui/widgets/movie_cart.dart';
+import 'package:appfilmesgetx/application/ui/widgets/movie_card.dart';
 import 'package:appfilmesgetx/models/movie_model.dart';
 import 'package:appfilmesgetx/modules/movies/movies_controller.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class MoviesGroup extends GetView<MoviesController> {
                 itemCount: movies.length,
                 itemBuilder: (context, index) {
                   var movie = movies[index];
-                  return MovieCart(
+                  return MovieCard(
                     movie: movie,
                     favoriteCallback: () => controller.favoriteMovie(movie),
                   );
