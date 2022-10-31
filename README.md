@@ -95,7 +95,7 @@
    https://flutter.dev/docs/get-started/install
 
    - Clone o repositório:
-   $ git clone https://github.com/caneto/AppFilmesGetx app_filmes
+   $ git clone https://github.com/caneto/AppFilmesGetx AppFilmesGetx
 
    - Entre no diretório:
    $ cd AppFilmesGetx
