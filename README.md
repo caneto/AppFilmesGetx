@@ -62,21 +62,21 @@
 - Search
   - Busca de filmes via pesquisa
   - Busca de filmes com base na lista de Categoria com os gêneros de filmes
-<!--- Adicionar filmes aos favoritos -->
+  - Adicionar filmes aos favoritos 
 - Firebase
   - Core
   - Auth | Sign-in
   - RemoteConfig
-  <!--- Cloud Firestore-->
+  - Cloud Firestore-
 - Telas: 
   - Login (onde possui o fluxo de login)
   - Splash (tela inicial do app para transição)
   - Home (tela principal do app e que serve de fluxo inicial para as demais telas descritas abaixo)
   - Movies (parte da view onde nós da a porta para a escolha da lista de filmes)
-  <!--- MovieDetail (detalhe da página de Movie, onde temos mais componentes descritivos a respeito do filme)
-  - Favorites (onde fica a lista de filmes que foram adicionados aos favoritos)-->
+  - MovieDetail (detalhe da página de Movie, onde temos mais componentes descritivos a respeito do filme)
+  - Favorites (onde fica a lista de filmes que foram adicionados aos favoritos)
 - E muuuitos outros aprendizados incríveis. 🔥
-   </p>
+</p>
 
 ---
 
@@ -88,17 +88,17 @@
 
 ---
 
-<!--<h2>🤔 Como usar</h2>
+<h2>🤔 Como usar</h2>
 
    ```
    Configure o ambiente de desenvolvimento na sua máquina:
    https://flutter.dev/docs/get-started/install
 
    - Clone o repositório:
-   $ git clone https://github.com/felipecastrosales/app_filmes app_filmes
+   $ git clone https://github.com/caneto/AppFilmesGetx app_filmes
 
    - Entre no diretório:
-   $ cd app_filmes
+   $ cd AppFilmesGetx
 
    - Instale as dependências:
    $ flutter pub get
@@ -125,7 +125,6 @@
    ```
 
 --
--->
 
 <h2>📝 Licença</h2>
 
