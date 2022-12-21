@@ -67,7 +67,7 @@
   - Core
   - Auth | Sign-in
   - RemoteConfig
-  - Cloud Firestore-
+  - Cloud Firestore
 - Telas: 
   - Login (onde possui o fluxo de login)
   - Splash (tela inicial do app para transição)
