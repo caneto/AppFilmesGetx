@@ -6,7 +6,7 @@ class CastModel {
   final String name;
   final String image;
   final String character;
-  
+
   const CastModel({
     required this.name,
     required this.image,
@@ -31,8 +31,10 @@ class CastModel {
 
   String toJson() => json.encode(toMap());
 
-  factory CastModel.fromJson(String source) => CastModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory CastModel.fromJson(String source) =>
+      CastModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'CastModel(name: $name, image: $image, character: $character)';
+  String toString() =>
+      'CastModel(name: $name, image: $image, character: $character,)';
 }

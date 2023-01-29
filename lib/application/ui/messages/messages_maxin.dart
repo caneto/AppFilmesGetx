@@ -38,14 +38,17 @@ class MessagesModel {
   }) : type = MessageType.info;
 }
 
-enum MessageType { error, info }
+enum MessageType {
+  error,
+  info,
+}
 
 extension MessageTypeExtension on MessageType {
   Color color() {
-    switch(this) {
+    switch (this) {
       case MessageType.error:
         return Colors.red[600] ?? Colors.red;
-      case MessageType.info: 
+      case MessageType.info:
         return Colors.blue[200] ?? Colors.blue;
     }
   }

@@ -10,14 +10,18 @@ class MovieCard extends StatelessWidget {
   final dataFormat = DateFormat('y');
   final MovieModel movie;
   final VoidCallback favoriteCallback;
-  
-  MovieCard({Key? key, required this.movie, required this.favoriteCallback}) : super(key: key);
+
+  MovieCard({Key? key, required this.movie, required this.favoriteCallback})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed('/movie/detail', arguments: movie.id);
+        Get.toNamed(
+          '/movie/detail',
+          arguments: movie.id,
+        );
       },
       child: Container(
         padding: const EdgeInsets.all(8),
@@ -36,7 +40,8 @@ class MovieCard extends StatelessWidget {
                     clipBehavior: Clip.antiAlias,
                     child: FadeInImage.memoryNetwork(
                       placeholder: kTransparentImage,
-                      image: 'https://image.tmdb.org/t/p/w200${movie.posterPath}',
+                      image:
+                          'https://image.tmdb.org/t/p/w200${movie.posterPath}',
                       width: 148,
                       height: 184,
                       fit: BoxFit.cover,
@@ -76,8 +81,9 @@ class MovieCard extends StatelessWidget {
                   child: IconButton(
                     iconSize: 13,
                     icon: Icon(
-                      movie.favorite ?
-                      FilmesAppIcons.heart : FilmesAppIcons.heart_empty,
+                      movie.favorite
+                          ? FilmesAppIcons.heart
+                          : FilmesAppIcons.heart_empty,
                       color: movie.favorite ? context.themeRed : Colors.grey,
                     ),
                     onPressed: favoriteCallback,
